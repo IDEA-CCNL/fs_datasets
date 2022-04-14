@@ -1,3 +1,4 @@
+import sys
 import datasets
 import os
 import glob
@@ -27,8 +28,10 @@ def load_dataset(name, **kargs) -> Union[
     '''
     通过数据集名字加载数据集
     '''
-    load_func = getattr(import_module('.' + name,
-                                      package='fs_datasets'), 'load_dataset')
+    import os.path
+    HERE = os.path.dirname(os.path.abspath(__file__))
+    sys.path.insert(0, HERE)
+    load_func = getattr(import_module(name), 'load_dataset')
     return load_func(**kargs)
 
 
