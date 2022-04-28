@@ -10,7 +10,7 @@ def list_datasets():
     split_path = os.path.split(os.path.abspath(__file__))
     files = glob.glob(os.path.join(split_path[0], '*'))
     ds_list = []
-    ignore_dir = ['__pycache__']
+    ignore_dir = ['__pycache__', 'utils']
     for file in files:
         if (os.path.isdir(file)):
             h = os.path.split(file)
