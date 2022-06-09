@@ -9,6 +9,6 @@ def load_dataset(**kargs):
     ds = datasets.load_dataset('json',
                                data_files={
                                    'train': _TRAIN_DATA_PATH,
-                                   'validation': _VAL_DATA_PATH, }
-                               ** kargs)
+                                   'validation': _VAL_DATA_PATH, },
+                               **kargs)
     return ds
